@@ -31,9 +31,10 @@ contract MultiSend {
         emit UserAdded(_user);
     }
 
-	//function to transfer ethers to the contract
-    function sendEthToContract() public payable onlyOwner {
+	//function to deposit ethers to the contract
+    function depositEthers(uint256 _amount) public payable onlyOwner {
         require(msg.value > 0, "Amount to transfer must be greater than zero");
+	require(msg.value==_amount, "Ethers to deposit must be equal to selected amount");
     }
 
 	//function to transfer ethers to multiple addresses of users
